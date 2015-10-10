@@ -176,7 +176,7 @@ void Puma::fillIndices(int &index, int index1, int index2, int index3, int index
 
 void Puma::InitializeDynamicBuffers()
 {
-	int c = 10;
+	int d = 10;
 	int materialWidth, materialHeight;
 	materialWidth = materialHeight = 10;
 
