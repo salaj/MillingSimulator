@@ -1,7 +1,7 @@
 #include "gk2_butterfly.h"
 #include "gk2_window.h"
 #include "gk2_exceptions.h"
-#include "gk2_puma.h"
+#include "gk2_scene.h"
 
 using namespace std;
 using namespace gk2;
@@ -15,7 +15,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmdLine,
 	int exitCode = 0;
 	try
 	{
-		app.reset(new Puma(hInstance));
+		app.reset(new Scene(hInstance));
 		w.reset(new Window(hInstance, 800, 700, L"Symulator Frezarki 3D"));
 		exitCode = app->Run(w.get(), cmdShow);
 	}

@@ -34,9 +34,6 @@
     <ClCompile Include="gk2_phongEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gk2_puma.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gk2_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -47,6 +44,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gk2_coordinateSystem.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="modelclass.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="gk2_scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="miller.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="heightMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fileReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -84,9 +102,6 @@
     <ClInclude Include="gk2_phongEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gk2_puma.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="gk2_utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -94,6 +109,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gk2_window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gk2_coordinateSystem.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="modelclass.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="gk2_scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="miller.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="heightMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -106,6 +142,12 @@
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{f6b7a52c-7a92-4a85-9252-78c77ab1ccaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{8eed74b0-dd7b-4801-974a-6ae8005a6329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{016834d7-8191-4d9f-a818-7a0a5d7021c7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

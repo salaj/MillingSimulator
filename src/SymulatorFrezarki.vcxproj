@@ -128,10 +128,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="fileReader.cpp" />
     <ClCompile Include="gk2_applicationBase.cpp" />
     <ClCompile Include="gk2_butterfly.cpp" />
     <ClCompile Include="gk2_camera.cpp" />
     <ClCompile Include="gk2_constantBuffer.cpp" />
+    <ClCompile Include="gk2_coordinateSystem.cpp" />
     <ClCompile Include="gk2_deviceHelper.cpp" />
     <ClCompile Include="gk2_effectBase.cpp" />
     <ClCompile Include="gk2_exceptions.cpp" />
@@ -139,17 +141,23 @@
     <ClCompile Include="gk2_lightShadowEffect.cpp" />
     <ClCompile Include="gk2_particles.cpp" />
     <ClCompile Include="gk2_phongEffect.cpp" />
-    <ClCompile Include="gk2_puma.cpp" />
+    <ClCompile Include="gk2_scene.cpp" />
     <ClCompile Include="gk2_utils.cpp" />
     <ClCompile Include="gk2_vertices.cpp" />
     <ClCompile Include="gk2_window.cpp" />
+    <ClCompile Include="heightMap.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="miller.cpp" />
+    <ClCompile Include="modelclass.cpp" />
+    <ClCompile Include="service.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="fileReader.h" />
     <ClInclude Include="gk2_applicationBase.h" />
     <ClInclude Include="gk2_butterfly.h" />
     <ClInclude Include="gk2_camera.h" />
     <ClInclude Include="gk2_constantBuffer.h" />
+    <ClInclude Include="gk2_coordinateSystem.h" />
     <ClInclude Include="gk2_deviceHelper.h" />
     <ClInclude Include="gk2_effectBase.h" />
     <ClInclude Include="gk2_exceptions.h" />
@@ -157,10 +165,14 @@
     <ClInclude Include="gk2_lightShadowEffect.h" />
     <ClInclude Include="gk2_particles.h" />
     <ClInclude Include="gk2_phongEffect.h" />
-    <ClInclude Include="gk2_puma.h" />
+    <ClInclude Include="gk2_scene.h" />
     <ClInclude Include="gk2_utils.h" />
     <ClInclude Include="gk2_vertices.h" />
     <ClInclude Include="gk2_window.h" />
+    <ClInclude Include="heightMap.h" />
+    <ClInclude Include="miller.h" />
+    <ClInclude Include="modelclass.h" />
+    <ClInclude Include="service.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Butterfly.hlsl">
