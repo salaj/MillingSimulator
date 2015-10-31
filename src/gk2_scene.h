@@ -5,6 +5,7 @@
 #include "gk2_camera.h"
 #include <xnamath.h>
 #include <vector>
+#include <mutex>
 #include "gk2_vertices.h"
 #include "gk2_lightShadowEffect.h"
 #include "gk2_phongEffect.h"
@@ -171,6 +172,21 @@ namespace gk2
 		XMFLOAT3 Scalar(XMFLOAT3 v, XMFLOAT3 t);
 		XMFLOAT3 ComputeNormalVectorForTriangle(int elementNumber, int triangle);
 		static XMFLOAT4 lightPos;
+	};
+
+	class container{
+	public:
+		Window* mainWindow;
+		FileReader* reader;
+		Miller* miller;
+		HeightMap* heightMap;
+		container(Window* MainWindow, FileReader* Reader, Miller* Miller, HeightMap* HeightMap)
+		{
+			mainWindow = MainWindow;
+			reader = Reader;
+			miller = Miller;
+			heightMap = HeightMap;
+		}
 	};
 }
 

@@ -1,8 +1,9 @@
-﻿Build started 2015-10-23 09:48:26.
+﻿Build started 2015-10-31 23:56:46.
      1>Project "C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\src\SymulatorFrezarki.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include" /I../ven/AntTweakBar/include /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt gk2_scene.cpp
-         gk2_scene.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include" /I../ven/AntTweakBar/include /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt miller.cpp
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+         miller.cpp
      1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092) : see previous definition of 'DXGI_STATUS_OCCLUDED'
      1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
@@ -61,23 +62,40 @@
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
          c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
      1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\heightmap.h(42): warning C4305: 'initializing' : truncation from 'double' to 'float'
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.h(101): warning C4244: 'argument' : conversion from 'double' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(251): warning C4244: 'argument' : conversion from 'double' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(252): warning C4244: 'argument' : conversion from 'double' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(409): warning C4244: 'argument' : conversion from 'double' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(501): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(511): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(521): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(647): warning C4316: 'gk2::CoordinateSystem' : object allocated on the heap may not be aligned 16
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(648): warning C4316: 'gk2::Miller' : object allocated on the heap may not be aligned 16
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(658): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(659): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(660): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(865): warning C4305: 'argument' : truncation from 'double' to 'FLOAT'
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(1082): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(1102): warning C4244: 'argument' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(1260): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\gk2_scene.cpp(1322): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(73): warning C4244: 'argument' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(74): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(84): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(89): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(109): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(115): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(118): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(122): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(123): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(149): warning C4244: 'argument' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(245): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(246): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(247): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(265): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(266): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(273): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(274): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(276): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(277): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(284): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(285): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(292): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(293): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(300): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(301): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(304): warning C4244: 'argument' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(306): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(313): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(351): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(352): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(367): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(368): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(414): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(382): warning C4101: 'd' : unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86" /LIBPATH:../ven/AntTweakBar/lib /LIBPATH:../ven/AntTweakBar/lib/debug d3d11.lib d3dx11.lib dxerr.lib dinput8.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.lib" /MACHINE:X86 Debug\fileReader.obj
          Debug\gk2_applicationBase.obj
@@ -106,4 +124,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.13
+Time Elapsed 00:00:01.72

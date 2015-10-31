@@ -53,21 +53,7 @@ void Miller :: SetupPosition(XMFLOAT3 startMillerPosition, XMFLOAT3 endMillerPos
 void Miller::Reset(HeightMap* heightMap)
 {
 	m_heightMap = heightMap;
-	float y = -0.02;
-	//StartMillerPosition = XMFLOAT3(-0.2, y, -0.5);
-	//EndMillerPosition = XMFLOAT3(1.0, y, 0.2);
-	iteration = 0;
 	m_heightMap->activePoints.clear();
-	//for (int i = 0; i < m_heightMap->materialHeight * m_heightMap->materialWidth; i++)
-	//	m_heightMap->activeVertices[i] = false;
-	algorithmContinue = true;
-	/*SetPosition(StartMillerPosition.x, StartMillerPosition.y, StartMillerPosition.z);*/
-
-}
-
-bool Miller::ShouldContinueBresenham()
-{
-	return algorithmContinue;
 }
 
 void Miller::searchRecursively(int x, int y, map<XMFLOAT2*, XMFLOAT2*>* futureActivePoints)
@@ -150,11 +136,6 @@ void Miller::CheckNeighbours()
 
 void Miller::UpdateActivePoints()
 {
-	if (!algorithmContinue)
-		return;
-	if (iteration == 0 )
-	//if (m_heightMap->activePoints.size() == 0)
-	{	
 		//przeszukaj wszystkie
 		for (int j = 0; j < m_heightMap->materialHeight; j++)
 		{
@@ -165,32 +146,15 @@ void Miller::UpdateActivePoints()
 				bool inside = CheckIfPointIsInside(pos);
 				if (inside)
 				{
-					//m_heightMap->activePoints.push_back(new XMFLOAT2(j, i));
 					XMFLOAT2 *newPoint = new XMFLOAT2(j, i);
 					m_heightMap->activePoints.insert(pair<XMFLOAT2*, XMFLOAT2*>(newPoint, newPoint));
 					m_heightMap->GetVerticeActiveValue(j, i) = true;
-					/*m_heightMap->GetHeightMapValue()*/
 				}
 			}
 		}
-		//ustaw pozycjê pocz¹tkow¹ i koñcow¹
-		prepareBresenham(StartMillerPosition.x, StartMillerPosition.y, EndMillerPosition.x, EndMillerPosition.y);
-	}
-	//CheckNeighbours();
-
-	//float cellSize = 0.001;
-	//Translate(XMFLOAT4(cellSize, 0, cellSize, 1));
-
-	for (map<XMFLOAT2*, XMFLOAT2*> ::iterator it = m_heightMap->activePoints.begin(); it != m_heightMap->activePoints.end(); it++)
-	{
-		XMFLOAT2* index = (*it).first;
-		XMFLOAT3 p = m_heightMap->GetHeightMapValue(index->x, index->y).Pos;
-		XMVECTOR pos = XMVectorSet(p.x, p.y, p.z, 1);
-		CheckIfPointIsInside(pos);
-		m_heightMap->GetHeightMapValue(index->x, index->y).Pos.y = XMVectorGetY(pos);
-	}
-	algorithmContinue = calculateBresenham();
-	iteration++;
+	//ustaw pozycjê pocz¹tkow¹ i koñcow¹
+	prepareBresenham(StartMillerPosition.x, StartMillerPosition.y, EndMillerPosition.x, EndMillerPosition.y);
+	calculateBresenham();
 }
 
 bool Miller::CheckIfPointIsInside(XMVECTOR& pos)
@@ -210,7 +174,7 @@ bool Miller::CheckIfPointIsInside(XMVECTOR& pos)
 		}
 		//check if not above the drill
 		XMVECTOR modPos = XMVECTOR(pos);
-		modPos = XMVectorSetY(modPos, XMVectorGetY(miller_center));
+		modPos = XMVectorSetY(pos, XMVectorGetY(miller_center));
 		float length = XMVectorGetX(XMVector3LengthSq(modPos - miller_center));
 		if (length < m_radius * m_radius)
 		{
@@ -223,9 +187,9 @@ bool Miller::CheckIfPointIsInside(XMVECTOR& pos)
 		XMVECTOR modPos = XMVECTOR(pos);
 		modPos = XMVectorSetY(modPos, XMVectorGetY(miller_center));
 		float length = XMVectorGetX(XMVector3LengthSq(modPos - miller_center));
-		if (length < m_radius * m_radius)
+		if (length <= m_radius * m_radius)
 		{
-			if (XMVectorGetY(pos) > XMVectorGetY(modPos))
+			if (XMVectorGetY(pos) >= XMVectorGetY(modPos))
 			{
 				if (isMovingVertically)
 					MessageBox(NULL, L"Frez p³aski próbuje wycinaæ w dó³.", NULL, NULL);
@@ -241,15 +205,15 @@ bool Miller::CheckIfPointIsInside(XMVECTOR& pos)
 void Miller::prepareBresenham(float x0, float y0, float x1, float y1)
 {
 
-	x0 = (x0 * m_heightMap->materialWidth);
-	y0 = (y0 * m_heightMap->materialHeight);
-	x1 = (x1 * m_heightMap->materialWidth);
-	y1 = (y1 * m_heightMap->materialHeight);
+	x0 = (x0 * m_heightMap->materialWidth / 2);
+	y0 = (y0 * m_heightMap->materialHeight / 2);
+	x1 = (x1 * m_heightMap->materialWidth / 2);
+	y1 = (y1 * m_heightMap->materialHeight / 2);
 
-	float cellSize = 2 / (float)m_heightMap->materialWidth;
+	//float cellSize = 2 / (float)m_heightMap->materialWidth;
 
-	dx = abs(x1 - x0), sx = x0 < x1 ? cellSize : -cellSize;
-	dy = -abs(y1 - y0), sy = y0 < y1 ? cellSize : -cellSize;
+	dx = abs(x1 - x0), sx = x0 < x1 ? millerStep : -millerStep;
+	dy = -abs(y1 - y0), sy = y0 < y1 ? millerStep : -millerStep;
 	err = dx + dy, e2; /* error value e_xy */
 
 	start_x = x0;
@@ -344,35 +308,72 @@ void  Miller::updateNormals(XMFLOAT2* index)
 
 bool Miller::calculateBresenham()
 {
-	float cellSize = 1 / (float)m_heightMap->materialWidth;
-	if (start_x >= end_x && start_y >= end_y) //break;
-		return false;
+	float cellSize = 2 / (float)m_heightMap->materialWidth;
+	float len = dx + dy;//abs(dx) + abs(dy);
+	int iter = len / millerStep;
+	for (int i = 0; i < iter; i++)
+	{
 		e2 = 2 * err;
 		if (e2 >= dy) 
 		{ 
 			err += dy;
-			//x0 += sx;
+			if (start_x + sx > end_x)
+				break;
 			start_x += sx;
 			for (map<XMFLOAT2*, XMFLOAT2*> ::iterator it = m_heightMap->activePoints.begin(); it != m_heightMap->activePoints.end(); it++)
 			{
+				if ((*it).second->x + sx <= 0 || (*it).second->x + sx > m_heightMap->materialWidth)
+					continue;
 				(*it).second->x += sx;
 				updateNormals((*it).first);
 			}
-			Translate(XMFLOAT4(cellSize, 0, 0, 1));
-		} /* e_xy+e_x > 0 */
+			Translate(XMFLOAT4(cellSize * millerStep, 0, 0, 1));
+		}
 		if (e2 <= dx) 
 		{ 
 			err += dx;
-			//y0 += sy;
+			if (start_y + sy > end_y)
+				break;
 			start_y += sy;
 			for (map<XMFLOAT2*, XMFLOAT2*> ::iterator it = m_heightMap->activePoints.begin(); it != m_heightMap->activePoints.end(); it++)
 			{
+				if ((*it).second->y + sy<= 0 || (*it).second->y + sy > m_heightMap->materialWidth)
+					continue;
+				(*it).second->y += sy;
 				updateNormals((*it).first);
 			}
-			Translate(XMFLOAT4(0, 0, cellSize, 1));
-		} /* e_xy+e_y < 0 */
-	//}
-
+			Translate(XMFLOAT4(0, 0, cellSize * millerStep, 1));
+		}
+		for (map<XMFLOAT2*, XMFLOAT2*> ::iterator it = m_heightMap->activePoints.begin(); it != m_heightMap->activePoints.end(); it++)
+		{
+			XMFLOAT2* index = (*it).first;
+			int factor = 1;
+			int x = index->x * factor;
+			int y = index->y * factor;
+			if (x < 0 || y < 0)
+				continue;
+			XMFLOAT3 p = m_heightMap->GetHeightMapValue(x, y).Pos;
+			XMVECTOR pos = XMVectorSet(p.x, p.y, p.z, 1);
+			bool c = CheckIfPointIsInside(pos);
+			if (c)
+				int b = 10;
+			m_heightMap->GetHeightMapValue(x, y).Pos.y = XMVectorGetY(pos);
+		}
+	}
+	for (map<XMFLOAT2*, XMFLOAT2*> ::iterator it = m_heightMap->activePoints.begin(); it != m_heightMap->activePoints.end(); it++)
+	{
+		XMFLOAT2* index = (*it).first;
+		int factor = 1;
+		int x = index->x * factor;
+		int y = index->y * factor;
+		if (x < 0 || y < 0)
+			continue;
+		XMFLOAT3 p = m_heightMap->GetHeightMapValue(x, y).Pos;
+		XMVECTOR pos = XMVectorSet(p.x, p.y, p.z, 1);
+		CheckIfPointIsInside(pos);
+		m_heightMap->GetHeightMapValue(x, y).Pos.y = XMVectorGetY(pos);
+		updateNormals((*it).first);
+	}
 	return true;
 }
 

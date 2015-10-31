@@ -22,7 +22,6 @@ namespace gk2{
 		bool CheckIfPointIsInside(XMVECTOR& pos);
 		void UpdateActivePoints();
 		XMFLOAT3 StartMillerPosition, EndMillerPosition;
-		bool ShouldContinueBresenham();
 		virtual void Reset(HeightMap* heightMap);
 		void SetupPosition(XMFLOAT3 startMillerPosition, XMFLOAT3 endMillerPosition);
 		void CheckNeighbours();
@@ -30,6 +29,8 @@ namespace gk2{
 		millerType type;
 		bool isMovingVertically = false;
 	private:
+		float millerStep = 1.0f;
+
 		virtual void setTriangleTopology();
 		virtual void setLineTopology();
 		void calculateOffset(XMVECTOR& pos, XMVECTOR& miller_center);
@@ -52,8 +53,6 @@ namespace gk2{
 
 
 		HeightMap* m_heightMap;
-
-		int iteration = 0;
 		int n, m;
 		//vector<XMFLOAT2*> activePoints;
 		float dx, sx;
@@ -62,7 +61,5 @@ namespace gk2{
 		float start_x, start_y;
 		float end_x, end_y;
 		float cell_width;
-
-		bool algorithmContinue = true;
 	};
 }

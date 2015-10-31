@@ -36,7 +36,7 @@ void HeightMap::InitializeMap(int n, int m)
 
 	float w = 2;
 	float d = 2;
-	float h = 0;
+	float h = 1;
 
 	float map_width = map_x / def_map_x *w;
 	float map_depth = map_z/ def_map_z *d;
@@ -53,10 +53,10 @@ void HeightMap::InitializeMap(int n, int m)
 			int index = (n * j) + i;
 
 			m_heightMap[index].x = x;
-			m_heightMap[index].y = map_height;
+			m_heightMap[index].y = 0;
 			m_heightMap[index].z = z;
 
-			float low_heigth = map_height + low_y;
+			float low_heigth = -map_height;
 			m_lowMap[lowIndex].x = x;
 			m_lowMap[lowIndex].y = low_heigth;
 			m_lowMap[lowIndex].z = z;

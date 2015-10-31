@@ -34,9 +34,9 @@ namespace gk2{
 		float def_map_z = 150;
 
 
-		float map_x = 80;
+		float map_x = 150;
 		float map_y = 50;
-		float map_z = 110;
+		float map_z = 150;
 
 		float low_y = -1.0;
 		float criticalMaterialYTolerance = 0.7;

@@ -75,11 +75,11 @@ void Scene::InitializeConstantBuffers()
 	desc.Usage = D3D11_USAGE_DEFAULT;
 	m_cbWorld.reset(new CBMatrix(m_device));
 	m_cbProj.reset(new CBMatrix(m_device));
-	desc.ByteWidth = sizeof(XMMATRIX)* 2;
+	desc.ByteWidth = sizeof(XMMATRIX) * 2;
 	m_cbView.reset(new CBMatrix(m_device));
-	desc.ByteWidth = sizeof(XMFLOAT4)* 3;
+	desc.ByteWidth = sizeof(XMFLOAT4) * 3;
 	m_cbLightPos = m_device.CreateBuffer(desc);
-	desc.ByteWidth = sizeof(XMFLOAT4)* 5;
+	desc.ByteWidth = sizeof(XMFLOAT4) * 5;
 	m_cbLightColors = m_device.CreateBuffer(desc);
 	desc.ByteWidth = sizeof(XMFLOAT4);
 	m_cbSurfaceColor = m_device.CreateBuffer(desc);
@@ -298,7 +298,7 @@ void Scene::InitializeScene()
 			indices[i].push_back(ind1);
 			indices[i].push_back(ind2);
 			indices[i].push_back(ind3);
-			triangles[i].push_back(vector<int>{ ind1, ind2, ind3 });
+			triangles[i].push_back(vector < int > { ind1, ind2, ind3 });
 		}
 		int edgesCount;
 		file >> edgesCount;
@@ -306,7 +306,7 @@ void Scene::InitializeScene()
 		{
 			int v1, v2, t1, t2;
 			file >> v1 >> v2 >> t1 >> t2;
-			edges[i].push_back(vector<int>{ v1, v2, t1, t2 });
+			edges[i].push_back(vector < int > { v1, v2, t1, t2 });
 		}
 		m_vbScene[i] = m_device.CreateVertexBuffer(&vertices[i][0], differentVertexCount, D3D11_USAGE_DYNAMIC);
 		//m_vbScene[i] = m_device.CreateVertexBuffer(&vertices[i][0], differentVertexCount);
@@ -358,8 +358,8 @@ void Scene::InitializeCyllinder()
 		pos = XMVector3Transform(pos, XMMatrixRotationY(XM_PIDIV2));
 		pos = XMVector3Transform(pos, XMMatrixRotationX(XM_PI));
 		pos = XMVector3Transform(pos, XMMatrixTranslation(2.5f, -0.5f, 1.0f));
-				
- 		cyllinderVertices[t].Pos = XMFLOAT3(XMVectorGetX(pos), XMVectorGetY(pos), XMVectorGetZ(pos));
+
+		cyllinderVertices[t].Pos = XMFLOAT3(XMVectorGetX(pos), XMVectorGetY(pos), XMVectorGetZ(pos));
 		XMStoreFloat3(&cyllinderVertices[t].Normal, (XMVectorSet(0.0f, 1.0f, -1.0f, 1.0f)));
 	}
 	m_vbCyllinder = m_device.CreateVertexBuffer(cyllinderVertices, 2 * verticesAmount);
@@ -370,7 +370,7 @@ void Scene::InitializeCyllinder()
 	for (int i = 0; i < indicesAmount; i += 2)
 	{
 		indices[i] = counter + verticesAmount;
-		indices[i+1] = counter;
+		indices[i + 1] = counter;
 		counter++;
 	}
 	//indices[indicesAmount] = verticesAmount;
@@ -404,7 +404,7 @@ void Scene::InitializeCircle()
 		pos = XMVector3Transform(pos, XMMatrixRotationY(XM_PIDIV2));
 		pos = XMVector3Transform(pos, XMMatrixRotationZ(XM_PI / 6.0f));
 		pos = XMVector3Transform(pos, XMMatrixTranslation(circleCenter.x, circleCenter.y, 0.0f));
-	
+
 		circleVertices[t].Pos = XMFLOAT3(XMVectorGetX(pos), XMVectorGetY(pos), XMVectorGetZ(pos));
 		circleVertices[t].Normal = XMFLOAT3(sqrt(3) / 2.0f, 0.5f, 0.0f);
 	}
@@ -446,11 +446,11 @@ struct Vertex
 
 // Scene globals
 Quaternion g_SpongeRotation;                 // model rotation, set by InitScene
-int x_mesh = 150;   
+int x_mesh = 150;
 int y_mesh = 50;
 int z_mesh = 150;
 int precision_mesh = 100;
-int animation_speed = 50;
+int animation_speed = 100;
 int max_speed = 101;
 bool isMaterialActive = false;
 bool g_SpongeAO = true;                      // apply ambient occlusion
@@ -461,21 +461,6 @@ float g_BackgroundColor[] = { 0, 0, 0.5f, 1 }; // background color
 bool g_Animate = true;                       // enable animation
 float g_AnimationSpeed = 0.2f;               // animation speed
 
-
-class container{
-public:
-	Window* mainWindow;
-	FileReader* reader;
-	Miller* miller;
-	HeightMap* heightMap;
-	container(Window* MainWindow, FileReader* Reader, Miller* Miller, HeightMap* HeightMap)
-	{
-		mainWindow = MainWindow;
-		reader = Reader;
-		miller = Miller;
-		heightMap = HeightMap;
-	}
-};
 
 void TW_CALL SetPrecisionMesh(const void *value, void * a)
 {
@@ -587,7 +572,7 @@ void TW_CALL RunCB(void * a)
 	if (s.size() <= 3)
 		return;
 	c->reader->LoadPaths(s);
-	c->miller->m_radius = c->reader->millerSize / c->heightMap->def_map_x;
+	c->miller->m_radius = (c->reader->millerSize) / c->heightMap->def_map_x;
 	c->miller->type = c->reader->millerType;
 	c->miller->Initialize();
 	int breakpoint = 10;
@@ -653,7 +638,13 @@ bool Scene::LoadContent()
 	m_reader.LoadPaths(file);
 	m_miller->m_radius = m_reader.millerSize / m_HeightMap->def_map_x;
 	m_miller->type = m_reader.millerType;
+	m_miller->SetPosition(0, 0.2, 0);
 	m_miller->Initialize();
+
+	/*m_miller->m_radius = 0.1f;
+	m_miller->type = millerType::Sphere;
+	m_miller->Initialize();*/
+	animationPending = true;
 
 	x_mesh = m_HeightMap->map_x;
 	y_mesh = m_HeightMap->map_y;
@@ -742,16 +733,16 @@ void Scene::SetLight0()
 //Setup one positional light at the camera
 {
 	XMFLOAT4 positions[3];
-	ZeroMemory(positions, sizeof(XMFLOAT4)* 3);
+	ZeroMemory(positions, sizeof(XMFLOAT4) * 3);
 	positions[0] = lightPos;// m_camera.GetPosition();
 	//positions[1] = XMFLOAT4(-2, -2, -2, 1);//m_camera.GetPosition();
 	//positions[2] = XMFLOAT4(0, 0, -10, 1);//m_camera.GetPosition();
 	m_context->UpdateSubresource(m_cbLightPos.get(), 0, 0, positions, 0, 0);
 
 	XMFLOAT4 colors[5];
-	ZeroMemory(colors, sizeof(XMFLOAT4)* 5);
+	ZeroMemory(colors, sizeof(XMFLOAT4) * 5);
 	colors[0] = XMFLOAT4(0.2f, 0.2f, 0.2f, 1.0f); //ambient color
-	colors[1] = XMFLOAT4(0.0f, 0.2f, 0.0f, 1.0f); //surface [ka, kd, ks, m]
+	colors[1] = XMFLOAT4(0.2f, 0.2f, 0.2f, 1.0f); //surface [ka, kd, ks, m]
 	colors[2] = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f); //light0 color
 	//colors[3] = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f); //light0 color
 	//colors[4] = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f); //light0 color
@@ -863,7 +854,7 @@ void Scene::DrawMirroredWorld()
 	XMVECTOR det;
 	XMMATRIX m_mirrorMtx;
 	XMMATRIX m = XMMatrixRotationY(XM_PIDIV2) * XMMatrixRotationZ(XM_PI / 6) * XMMatrixTranslation(-1.48, 0, 0);// *XMMatrixRotationZ(-XM_PI / 6);
-		m_mirrorMtx = XMMatrixInverse(&det,
+	m_mirrorMtx = XMMatrixInverse(&det,
 		m)
 		* scale *
 		m;
@@ -907,12 +898,12 @@ void Scene::inverse_kinematics(XMFLOAT3 pos, XMFLOAT3 normal, float &a1, float &
 	XMFLOAT3 normal1;
 	XMVECTOR a = XMVector3Transform(XMVectorSet(normal.x, normal.y, normal.z, 0.0f), XMMatrixRotationY(-a1));
 	normal1 = XMFLOAT3(XMVectorGetX(a), XMVectorGetY(a), XMVectorGetZ(a));
-	
+
 
 	XMVECTOR b = XMVector3Transform(XMVectorSet(normal1.x, normal1.y, normal1.z, 0.0f), XMMatrixRotationZ(-(a2 + a3)));
 	normal1 = XMFLOAT3(XMVectorGetX(b), XMVectorGetY(b), XMVectorGetZ(b));
 
-	
+
 	a5 = acosf(normal1.x);
 	a4 = atan2(normal1.z, normal1.y);
 }
@@ -963,8 +954,8 @@ void Scene::UpdateScene(float dt)
 			break;
 		case 5:
 			m_SceneMtx[i] = XMMatrixTranslation(0, -0.27f, 0)* XMMatrixTranslation(1.72f, 0, 0) *XMMatrixRotationZ(a5) * XMMatrixTranslation(-1.72f, 0, 0) *
-				XMMatrixTranslation(0, 0, 0.26f) * XMMatrixRotationX(a4) *XMMatrixTranslation(0, 0, -0.26f) * XMMatrixTranslation(+0.91f, 0, 0) 
-				*	XMMatrixRotationZ(a3)* XMMatrixTranslation(-0.91f, 0, 0) *XMMatrixRotationZ(a2)* 
+				XMMatrixTranslation(0, 0, 0.26f) * XMMatrixRotationX(a4) *XMMatrixTranslation(0, 0, -0.26f) * XMMatrixTranslation(+0.91f, 0, 0)
+				*	XMMatrixRotationZ(a3)* XMMatrixTranslation(-0.91f, 0, 0) *XMMatrixRotationZ(a2)*
 				XMMatrixTranslation(0, 0.27f, 0) *XMMatrixRotationY(a1);
 			break;
 		}
@@ -1036,49 +1027,6 @@ XMFLOAT3 StartMillerPosition, EndMillerPosition, CoreEndMillerPosition;
 XMVECTOR s, e, step;
 void Scene::UpdateCube(float dt)
 {
-	//m_miller->SetupPosition(XMFLOAT3(0, 0, 0), XMFLOAT3(0, 0, 0));
-	//return;
-	//if (once)
-	//	return;
-	//once = true;
-
-
-	/*for (int k = 0; k < 100; k++)
-	{
-		XMVECTOR s = XMVectorSet(m_miller->StartMillerPosition.x, m_miller->StartMillerPosition.y, 0, 1);
-		XMVECTOR e = XMVectorSet(m_miller->EndMillerPosition.x, m_miller->EndMillerPosition.y, 0, 1);
-		XMVECTOR offset = (e - s) / 100;
-		m_miller->Translate(XMFLOAT4(XMVectorGetX(offset), 0, XMVectorGetY(offset), 1));
-		for (int i = 0; i < 10000; i++)
-		{
-			XMFLOAT3 p = m_HeightMap->cubeVertices[i].Pos;
-			XMVECTOR pos = XMVectorSet(p.x, p.y, p.z, 1);
-			if (m_miller->CheckIfPointIsInside(pos))
-			{
-				m_HeightMap->cubeVertices[i].Pos.y = XMVectorGetY(pos);
-				XMVECTOR p1 = XMVectorSet(m_HeightMap->cubeVertices[i].Pos.x, m_HeightMap->cubeVertices[i].Pos.y, m_HeightMap->cubeVertices[i].Pos.z, 1);
-				XMVECTOR p2 = XMVectorSet(m_HeightMap->cubeVertices[i + 1].Pos.x, m_HeightMap->cubeVertices[i + 1].Pos.y, m_HeightMap->cubeVertices[i + 1].Pos.z, 1);
-				XMVECTOR p3 = XMVectorSet(m_HeightMap->cubeVertices[i + 2].Pos.x, m_HeightMap->cubeVertices[i + 2].Pos.y, m_HeightMap->cubeVertices[i + 2].Pos.z, 1);
-				XMVECTOR u = p2 - p1;
-				XMVECTOR v = p3 - p1;
-				XMVECTOR n = XMVector3Cross(v, u);
-				m_HeightMap->cubeVertices[i].Normal = XMFLOAT3(XMVectorGetX(n), XMVectorGetY(n), XMVectorGetZ(n));
-			}
-		}
-	}*/
-
-	//for (int j = 0; j < 100 * 2 - 21; j++)
-	//{
-	//	int i = 3 * j;
-	//	XMVECTOR p1 = XMVectorSet(cubeVertices[cubeIndicesMaterial[i]].Pos.x, cubeVertices[cubeIndicesMaterial[i + 0]].Pos.y, cubeVertices[cubeIndicesMaterial[i + 0]].Pos.z, 1);
-	//	XMVECTOR p2 = XMVectorSet(cubeVertices[cubeIndicesMaterial[i + 1]].Pos.x, cubeVertices[cubeIndicesMaterial[i + 1]].Pos.y, cubeVertices[cubeIndicesMaterial[i + 1]].Pos.z, 1);
-	//	XMVECTOR p3 = XMVectorSet(cubeVertices[cubeIndicesMaterial[i + 2]].Pos.x, cubeVertices[cubeIndicesMaterial[i + 2]].Pos.y, cubeVertices[cubeIndicesMaterial[i + 2]].Pos.z, 1);
-	//	XMVECTOR u = p2 - p1;
-	//	XMVECTOR v = p3 - p1;
-	//	XMVECTOR n = XMVector3Cross(v, u);
-	//	cubeVertices[j].Normal = XMFLOAT3(XMVectorGetX(n), XMVectorGetY(n), XMVectorGetZ(n));
-	//}
-
 	if (m_reader.pathIndex >= m_reader.paths.size())
 		return;
 
@@ -1106,20 +1054,21 @@ void Scene::UpdateCube(float dt)
 			m_miller->isMovingVertically = false;
 
 		float val = m_HeightMap->def_map_y;
-		float left = -( (val - XMVectorGetZ(e)) / (m_HeightMap->def_map_x / 2));
-		float right = (m_HeightMap->low_y * m_HeightMap->criticalMaterialYTolerance);
+		float left = -((val - XMVectorGetZ(e)) / (m_HeightMap->def_map_y / 2));
+		float right = -(m_HeightMap->map_y / m_HeightMap->def_map_y);
+		//float right = (m_HeightMap->low_y * m_HeightMap->criticalMaterialYTolerance);
 		if (left < right)
 		{
 			int error = 10;
 			ShowPopup();
+			m_reader.pathIndex++;
+			return;
 		}
+		m_miller->Reset(m_HeightMap);
 	}
 	s = XMVectorSet(StartMillerPosition.x, StartMillerPosition.y, StartMillerPosition.z, 1);
 	XMVECTOR target = s + step;
 	EndMillerPosition = XMFLOAT3(XMVectorGetX(target), XMVectorGetY(target), XMVectorGetZ(target));
-	//XMVECTOR offset = (e - s) / 50;
-
-	m_miller->Reset(m_HeightMap);
 	m_miller->SetupPosition(StartMillerPosition, EndMillerPosition);
 
 
@@ -1128,34 +1077,15 @@ void Scene::UpdateCube(float dt)
 	m_miller->UpdateActivePoints();
 
 	StartMillerPosition = EndMillerPosition;
-	//for (int k = 0; k < 50; k++)
-	//{
-	//	m_miller->UpdateActivePoints();
-	//	m_miller->Translate(XMFLOAT4(XMVectorGetX(offset), XMVectorGetY(offset), XMVectorGetZ(offset), 1));
-	//	/*for (int i = 0; i < 10000; i++)
-	//	{
-	//		XMFLOAT3 p = m_HeightMap->cubeVertices[i].Pos;
-	//		XMVECTOR pos = XMVectorSet(p.x, p.y, p.z, 1);
-	//		if (m_miller->CheckIfPointIsInside(pos))
-	//		{
-	//			m_HeightMap->cubeVertices[i].Pos.y = XMVectorGetY(pos);
-	//			XMVECTOR p1 = XMVectorSet(m_HeightMap->cubeVertices[i].Pos.x, m_HeightMap->cubeVertices[i].Pos.y, m_HeightMap->cubeVertices[i].Pos.z, 1);
-	//			XMVECTOR p2 = XMVectorSet(m_HeightMap->cubeVertices[i + 1].Pos.x, m_HeightMap->cubeVertices[i + 1].Pos.y, m_HeightMap->cubeVertices[i + 1].Pos.z, 1);
-	//			XMVECTOR p3 = XMVectorSet(m_HeightMap->cubeVertices[i + 2].Pos.x, m_HeightMap->cubeVertices[i + 2].Pos.y, m_HeightMap->cubeVertices[i + 2].Pos.z, 1);
-	//			XMVECTOR u = p2 - p1;
-	//			XMVECTOR v = p3 - p1;
-	//			XMVECTOR n = XMVector3Cross(v, u);
-	//			m_HeightMap->cubeVertices[i].Normal = XMFLOAT3(XMVectorGetX(n), XMVectorGetY(n), XMVectorGetZ(n));
-	//		}
-	//	}*/
-	//}
+
 	long long b = GetTickCount64() - a;
 	timer++;
-	if (timer >= (max_speed-animation_speed) - 1)
+	if (timer >= (max_speed - animation_speed))
 	{
 		timer = 0;
 		m_reader.pathIndex++;
 	}
+
 	//while (++m_reader.pathIndex < m_reader.paths.size())
 	//	UpdateCube(dt);
 	//int d = 0;
@@ -1178,7 +1108,7 @@ void Scene::Update(float dt)
 		change = false;
 	prevState = currentState;
 	//if (change)
-		UpdateCamera(m_camera.GetViewMatrix());
+	UpdateCamera(m_camera.GetViewMatrix());
 	//UpdateScene(dt);
 	if (animationPending)
 		UpdateCube(dt);
@@ -1191,7 +1121,7 @@ XMFLOAT3 Scene::ComputeNormalVectorForTriangle(int elementNumber, int triangle)
 	XMFLOAT3 p0 = vertices[elementNumber][triangles[elementNumber][triangle][0]].Pos;
 	XMFLOAT3 p1 = vertices[elementNumber][triangles[elementNumber][triangle][1]].Pos;
 	XMFLOAT3 p2 = vertices[elementNumber][triangles[elementNumber][triangle][2]].Pos;
-//
+	//
 	XMVECTOR pos = XMLoadFloat3(
 		&XMFLOAT3(
 		p0.x,
@@ -1227,7 +1157,7 @@ XMFLOAT3 Scene::ComputeNormalVectorForTriangle(int elementNumber, int triangle)
 	p2.x = XMVectorGetX(pos);
 	p2.y = XMVectorGetY(pos);
 	p2.z = XMVectorGetZ(pos);
-//
+	//
 	XMFLOAT3 p1_minus_p0 = XMFLOAT3(p1.x - p0.x, p1.y - p0.y, p1.z - p0.z);
 	XMFLOAT3 p2_minus_p0 = XMFLOAT3(p2.x - p0.x, p2.y - p0.y, p2.z - p0.z);
 
@@ -1267,7 +1197,7 @@ void Scene::ComputeShadowVolume()
 			XMFLOAT3 normal2 = ComputeNormalVectorForTriangle(i, t2);
 			normal1 = Normalize(normal1);
 			normal2 = Normalize(normal2);
-//
+			//
 			XMFLOAT3 v1_Pos;
 			XMFLOAT3 v2_Pos;
 
@@ -1294,7 +1224,7 @@ void Scene::ComputeShadowVolume()
 			v2_Pos.x = XMVectorGetX(pos);
 			v2_Pos.y = XMVectorGetY(pos);
 			v2_Pos.z = XMVectorGetZ(pos);
-//
+			//
 			XMFLOAT3 vectorBetweenLightAndTheTriangle = XMFLOAT3(lightPos.x - v1_Pos.x,
 				lightPos.y - v1_Pos.y,
 				lightPos.z - v1_Pos.z
@@ -1307,7 +1237,7 @@ void Scene::ComputeShadowVolume()
 				(dotProductForTriangle1 <= 0 && dotProductForTriangle2 > 0))
 			{
 				//krawedz v1v2 znajduje siê na granicy oœwietlenia
-				bordersOfTheLightenedArea[i].push_back(vector<int>{v1, v2});
+				bordersOfTheLightenedArea[i].push_back(vector < int > {v1, v2});
 			}
 		}
 	}
@@ -1323,7 +1253,7 @@ void Scene::ComputeShadowVolume()
 		{
 			int v1 = bordersOfTheLightenedArea[i][j][0];
 			int v2 = bordersOfTheLightenedArea[i][j][1];
-//
+			//
 			XMFLOAT3 v1_Pos;
 			XMFLOAT3 v2_Pos;
 
@@ -1350,7 +1280,7 @@ void Scene::ComputeShadowVolume()
 			v2_Pos.x = XMVectorGetX(pos);
 			v2_Pos.y = XMVectorGetY(pos);
 			v2_Pos.z = XMVectorGetZ(pos);
-//
+			//
 			XMFLOAT3 v1_prim = XMFLOAT3(v1_Pos.x - lightPos.x,
 				v1_Pos.y - lightPos.y,
 				v1_Pos.z - lightPos.z);
