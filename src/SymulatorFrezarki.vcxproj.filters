@@ -1,136 +1,145 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="gk2_applicationBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_butterfly.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_constantBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_deviceHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_effectBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_exceptions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_lightShadowEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_particles.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_phongEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_vertices.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gk2_coordinateSystem.cpp">
+    <ClCompile Include="pusn_modelclass.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="modelclass.cpp">
+    <ClCompile Include="pusn_heightMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_miller.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="gk2_scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="service.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="miller.cpp">
+    <ClCompile Include="pusn_coordinateSystem.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="heightMap.cpp">
+    <ClCompile Include="pusn_applicationBase.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_camera.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_constantBuffer.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_deviceHelper.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_effectBase.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_exceptions.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_input.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_lightShadowEffect.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_particles.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_phongEffect.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_utils.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_vertices.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_window.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_main.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_butterfly.cpp">
+      <Filter>Source Files\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fileReader.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="pusn_fileReader.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_service.cpp">
+      <Filter>Source Files\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_menu.cpp">
+      <Filter>Source Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="gk2_applicationBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_butterfly.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_constantBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_deviceHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_effectBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_exceptions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_lightShadowEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_particles.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_phongEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_vertices.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gk2_coordinateSystem.h">
+    <ClInclude Include="pusn_modelclass.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="modelclass.h">
+    <ClInclude Include="pusn_heightMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_miller.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="gk2_scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="service.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="miller.h">
+    <ClInclude Include="pusn_coordinateSystem.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="heightMap.h">
+    <ClInclude Include="pusn_applicationBase.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_butterfly.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_camera.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_constantBuffer.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_deviceHelper.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_effectBase.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_exceptions.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_input.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_lightShadowEffect.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_particles.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_phongEffect.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_utils.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_vertices.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_window.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileReader.h">
+    <ClInclude Include="pusn_fileReader.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_service.h">
+      <Filter>Header Files\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_menu.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_menu_service.h">
+      <Filter>Header Files\Containers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +157,27 @@
     </Filter>
     <Filter Include="Header Files\Models">
       <UniqueIdentifier>{016834d7-8191-4d9f-a818-7a0a5d7021c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Context">
+      <UniqueIdentifier>{ecdfd11e-66a7-4a26-86c2-900918d5784f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Context">
+      <UniqueIdentifier>{bc499c91-7cf8-4ace-9eaf-23b7360d56ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IO">
+      <UniqueIdentifier>{82b4ac80-bcc3-48b1-be6b-babe7265c2a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{ec29b4c3-c850-452c-a91d-03f09f91a950}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Containers">
+      <UniqueIdentifier>{94174fa7-e1a6-461e-afda-269cde7e7de9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Containers">
+      <UniqueIdentifier>{276d2426-3f7b-4819-9dc9-2932ea5c0118}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{c8d53213-8e83-450e-b359-ff8b8bf8be1c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

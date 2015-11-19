@@ -71,11 +71,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;../ven/AntTweakBar/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;../ven/AntTweakBar/include;C:\Users\Qba\Documents\Studia magisterskie\semestr_1\MG\laboratoria\ZAD3\Motyl</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;../ven/AntTweakBar/lib;../ven/AntTweakBar/lib/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;../ven/AntTweakBar/lib;../ven/AntTweakBar/lib/debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d11.lib;d3dx11.lib;dxerr.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -99,13 +99,13 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;../ven/AntTweakBar/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;../ven/AntTweakBar/include;C:\Users\Qba\Documents\Studia magisterskie\semestr_1\MG\laboratoria\ZAD3\Motyl</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;../ven/AntTweakBar/lib;../ven/AntTweakBar/lib/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;../ven/AntTweakBar/lib;../ven/AntTweakBar/lib/debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d11.lib;d3dx11.lib;dxerr.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -128,51 +128,54 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="fileReader.cpp" />
-    <ClCompile Include="gk2_applicationBase.cpp" />
-    <ClCompile Include="gk2_butterfly.cpp" />
-    <ClCompile Include="gk2_camera.cpp" />
-    <ClCompile Include="gk2_constantBuffer.cpp" />
-    <ClCompile Include="gk2_coordinateSystem.cpp" />
-    <ClCompile Include="gk2_deviceHelper.cpp" />
-    <ClCompile Include="gk2_effectBase.cpp" />
-    <ClCompile Include="gk2_exceptions.cpp" />
-    <ClCompile Include="gk2_input.cpp" />
-    <ClCompile Include="gk2_lightShadowEffect.cpp" />
-    <ClCompile Include="gk2_particles.cpp" />
-    <ClCompile Include="gk2_phongEffect.cpp" />
-    <ClCompile Include="gk2_scene.cpp" />
-    <ClCompile Include="gk2_utils.cpp" />
-    <ClCompile Include="gk2_vertices.cpp" />
-    <ClCompile Include="gk2_window.cpp" />
-    <ClCompile Include="heightMap.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="miller.cpp" />
-    <ClCompile Include="modelclass.cpp" />
-    <ClCompile Include="service.cpp" />
+    <ClCompile Include="pusn_fileReader.cpp" />
+    <ClCompile Include="pusn_applicationBase.cpp" />
+    <ClCompile Include="pusn_butterfly.cpp" />
+    <ClCompile Include="pusn_camera.cpp" />
+    <ClCompile Include="pusn_constantBuffer.cpp" />
+    <ClCompile Include="pusn_coordinateSystem.cpp" />
+    <ClCompile Include="pusn_deviceHelper.cpp" />
+    <ClCompile Include="pusn_effectBase.cpp" />
+    <ClCompile Include="pusn_exceptions.cpp" />
+    <ClCompile Include="pusn_input.cpp" />
+    <ClCompile Include="pusn_lightShadowEffect.cpp" />
+    <ClCompile Include="pusn_menu.cpp" />
+    <ClCompile Include="pusn_particles.cpp" />
+    <ClCompile Include="pusn_phongEffect.cpp" />
+    <ClCompile Include="pusn_scene.cpp" />
+    <ClCompile Include="pusn_utils.cpp" />
+    <ClCompile Include="pusn_vertices.cpp" />
+    <ClCompile Include="pusn_window.cpp" />
+    <ClCompile Include="pusn_heightMap.cpp" />
+    <ClCompile Include="pusn_main.cpp" />
+    <ClCompile Include="pusn_miller.cpp" />
+    <ClCompile Include="pusn_modelclass.cpp" />
+    <ClCompile Include="pusn_service.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fileReader.h" />
-    <ClInclude Include="gk2_applicationBase.h" />
-    <ClInclude Include="gk2_butterfly.h" />
-    <ClInclude Include="gk2_camera.h" />
-    <ClInclude Include="gk2_constantBuffer.h" />
-    <ClInclude Include="gk2_coordinateSystem.h" />
-    <ClInclude Include="gk2_deviceHelper.h" />
-    <ClInclude Include="gk2_effectBase.h" />
-    <ClInclude Include="gk2_exceptions.h" />
-    <ClInclude Include="gk2_input.h" />
-    <ClInclude Include="gk2_lightShadowEffect.h" />
-    <ClInclude Include="gk2_particles.h" />
-    <ClInclude Include="gk2_phongEffect.h" />
-    <ClInclude Include="gk2_scene.h" />
-    <ClInclude Include="gk2_utils.h" />
-    <ClInclude Include="gk2_vertices.h" />
-    <ClInclude Include="gk2_window.h" />
-    <ClInclude Include="heightMap.h" />
-    <ClInclude Include="miller.h" />
-    <ClInclude Include="modelclass.h" />
-    <ClInclude Include="service.h" />
+    <ClInclude Include="pusn_menu.h" />
+    <ClInclude Include="pusn_fileReader.h" />
+    <ClInclude Include="pusn_applicationBase.h" />
+    <ClInclude Include="pusn_butterfly.h" />
+    <ClInclude Include="pusn_camera.h" />
+    <ClInclude Include="pusn_constantBuffer.h" />
+    <ClInclude Include="pusn_coordinateSystem.h" />
+    <ClInclude Include="pusn_deviceHelper.h" />
+    <ClInclude Include="pusn_effectBase.h" />
+    <ClInclude Include="pusn_exceptions.h" />
+    <ClInclude Include="pusn_input.h" />
+    <ClInclude Include="pusn_lightShadowEffect.h" />
+    <ClInclude Include="pusn_menu_service.h" />
+    <ClInclude Include="pusn_particles.h" />
+    <ClInclude Include="pusn_phongEffect.h" />
+    <ClInclude Include="pusn_scene.h" />
+    <ClInclude Include="pusn_utils.h" />
+    <ClInclude Include="pusn_vertices.h" />
+    <ClInclude Include="pusn_window.h" />
+    <ClInclude Include="pusn_heightMap.h" />
+    <ClInclude Include="pusn_miller.h" />
+    <ClInclude Include="pusn_modelclass.h" />
+    <ClInclude Include="pusn_service.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Butterfly.hlsl">
@@ -192,6 +195,11 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VS_Main</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">3.0</ShaderModel>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\semestr_1\MG\laboratoria\ZAD3\Motyl\Motyl.vcxproj">
+      <Project>{11562f00-87c7-48d4-a95e-99ed7b5ff978}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SymulatorFrezarki", "src\SymulatorFrezarki.vcxproj", "{464C6A5C-DEEA-4E26-81C6-A44CD8C9998F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Modelowanie", "..\..\..\semestr_1\MG\laboratoria\ZAD3\Motyl\Motyl.vcxproj", "{11562F00-87C7-48D4-A95E-99ED7B5FF978}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,14 @@ Global
 		{464C6A5C-DEEA-4E26-81C6-A44CD8C9998F}.Release|Win32.Build.0 = Release|Win32
 		{464C6A5C-DEEA-4E26-81C6-A44CD8C9998F}.Release|x64.ActiveCfg = Release|x64
 		{464C6A5C-DEEA-4E26-81C6-A44CD8C9998F}.Release|x64.Build.0 = Release|x64
+		{11562F00-87C7-48D4-A95E-99ED7B5FF978}.Debug|Win32.ActiveCfg = Debug|Win32
+		{11562F00-87C7-48D4-A95E-99ED7B5FF978}.Debug|Win32.Build.0 = Debug|Win32
+		{11562F00-87C7-48D4-A95E-99ED7B5FF978}.Debug|x64.ActiveCfg = Debug|x64
+		{11562F00-87C7-48D4-A95E-99ED7B5FF978}.Debug|x64.Build.0 = Debug|x64
+		{11562F00-87C7-48D4-A95E-99ED7B5FF978}.Release|Win32.ActiveCfg = Release|Win32
+		{11562F00-87C7-48D4-A95E-99ED7B5FF978}.Release|Win32.Build.0 = Release|Win32
+		{11562F00-87C7-48D4-A95E-99ED7B5FF978}.Release|x64.ActiveCfg = Release|x64
+		{11562F00-87C7-48D4-A95E-99ED7B5FF978}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

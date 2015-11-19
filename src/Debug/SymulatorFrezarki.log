@@ -1,9 +1,8 @@
-﻿Build started 2015-10-31 23:56:46.
+﻿Build started 2015-11-19 21:08:35.
      1>Project "C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\src\SymulatorFrezarki.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include" /I../ven/AntTweakBar/include /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt miller.cpp
-     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
-         miller.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include" /I../ven/AntTweakBar/include /I"C:\Users\Qba\Documents\Studia magisterskie\semestr_1\MG\laboratoria\ZAD3\Motyl" /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt pusn_heightMap.cpp
+         pusn_heightMap.cpp
      1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092) : see previous definition of 'DXGI_STATUS_OCCLUDED'
      1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
@@ -61,67 +60,124 @@
      1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
          c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\heightmap.h(42): warning C4305: 'initializing' : truncation from 'double' to 'float'
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(73): warning C4244: 'argument' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(74): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(84): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(89): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(109): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(115): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(118): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(122): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(123): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(149): warning C4244: 'argument' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(245): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(246): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(247): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(265): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(266): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(273): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(274): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(276): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(277): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(284): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(285): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(292): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(293): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(300): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(301): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(304): warning C4244: 'argument' : conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(306): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(313): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(351): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(352): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(367): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(368): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(414): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\miller.cpp(382): warning C4101: 'd' : unreferenced local variable
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\applicationbase.h(45): warning C4251: 'gk2::ApplicationBase::m_context' : class 'std::shared_ptr<ID3D11DeviceContext>' needs to have dll-interface to be used by clients of class 'gk2::ApplicationBase'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\applicationbase.h(46): warning C4251: 'gk2::ApplicationBase::m_swapChain' : class 'std::shared_ptr<IDXGISwapChain>' needs to have dll-interface to be used by clients of class 'gk2::ApplicationBase'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\applicationbase.h(47): warning C4251: 'gk2::ApplicationBase::m_backBuffer' : class 'std::shared_ptr<ID3D11RenderTargetView>' needs to have dll-interface to be used by clients of class 'gk2::ApplicationBase'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\applicationbase.h(48): warning C4251: 'gk2::ApplicationBase::m_depthStencilTexture' : class 'std::shared_ptr<ID3D11Texture2D>' needs to have dll-interface to be used by clients of class 'gk2::ApplicationBase'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\applicationbase.h(49): warning C4251: 'gk2::ApplicationBase::m_depthStencilView' : class 'std::shared_ptr<ID3D11DepthStencilView>' needs to have dll-interface to be used by clients of class 'gk2::ApplicationBase'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\applicationbase.h(51): warning C4251: 'gk2::ApplicationBase::m_keyboard' : class 'std::shared_ptr<gk2::Keyboard>' needs to have dll-interface to be used by clients of class 'gk2::ApplicationBase'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\applicationbase.h(52): warning C4251: 'gk2::ApplicationBase::m_mouse' : class 'std::shared_ptr<gk2::Mouse>' needs to have dll-interface to be used by clients of class 'gk2::ApplicationBase'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(88): warning C4251: 'ModelClass::m_modelMatrix' : struct '_XMMATRIX' needs to have dll-interface to be used by clients of class 'ModelClass'
+                 c:\program files (x86)\microsoft directx sdk (june 2010)\include\xnamath.h(336) : see declaration of '_XMMATRIX'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(94): warning C4251: 'ModelClass::m_vertexBuffer' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(94): warning C4251: 'ModelClass::m_indexBuffer' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(95): warning C4251: 'ModelClass::m_vertexBuffer_SquareFirst' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(95): warning C4251: 'ModelClass::m_indexBuffer_SquareFirst' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(96): warning C4251: 'ModelClass::m_vertexBuffer_SquareSecond' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(96): warning C4251: 'ModelClass::m_indexBuffer_SquareSecond' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(97): warning C4251: 'ModelClass::m_vertexBuffer_ParametrizationFirst' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(97): warning C4251: 'ModelClass::m_indexBuffer_ParametrizationFirst' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(98): warning C4251: 'ModelClass::m_vertexBuffer_ParametrizationSecond' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(98): warning C4251: 'ModelClass::m_indexBuffer_ParametrizationSecond' : class 'std::shared_ptr<ID3D11Buffer>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(101): warning C4251: 'ModelClass::m_context' : class 'std::shared_ptr<ID3D11DeviceContext>' needs to have dll-interface to be used by clients of class 'ModelClass'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(119): warning C4251: 'ModelClass::m_camera' : class 'gk2::Camera' needs to have dll-interface to be used by clients of class 'ModelClass'
+                 c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\camera.h(17) : see declaration of 'gk2::Camera'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelclass.h(129): warning C4251: 'ModelClass::m_position' : struct '_XMFLOAT4' needs to have dll-interface to be used by clients of class 'ModelClass'
+                 c:\program files (x86)\microsoft directx sdk (june 2010)\include\xnamath.h(944) : see declaration of '_XMFLOAT4'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\elipsoid.h(18): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\bsplinesurface.h(37): warning C4251: 'BSplineSurface::m_bsplinePatches' : class 'std::vector<BSplinePatch *,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'BSplineSurface'
+                 with
+                 [
+                     _Ty=BSplinePatch *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\bsplinesurface.h(38): warning C4251: 'BSplineSurface::m_nodes' : class 'std::map<int,SimplePoint *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'BSplineSurface'
+                 with
+                 [
+                     _Kty=int
+         ,            _Ty=SimplePoint *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelsmanager.h(85): warning C4251: 'gk2::ModelsManager::m_models' : class 'std::map<int,ModelClass *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'gk2::ModelsManager'
+                 with
+                 [
+                     _Kty=int
+         ,            _Ty=ModelClass *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelsmanager.h(86): warning C4251: 'gk2::ModelsManager::m_active_models' : class 'std::map<int,ModelClass *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'gk2::ModelsManager'
+                 with
+                 [
+                     _Kty=int
+         ,            _Ty=ModelClass *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelsmanager.h(87): warning C4251: 'gk2::ModelsManager::m_bezier_curves' : class 'std::map<int,BezierCurve *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'gk2::ModelsManager'
+                 with
+                 [
+                     _Kty=int
+         ,            _Ty=BezierCurve *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelsmanager.h(88): warning C4251: 'gk2::ModelsManager::m_bezier_surfaces' : class 'std::map<int,BezierSurface *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'gk2::ModelsManager'
+                 with
+                 [
+                     _Kty=int
+         ,            _Ty=BezierSurface *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelsmanager.h(89): warning C4251: 'gk2::ModelsManager::m_bspline_surfaces' : class 'std::map<int,BSplineSurface *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'gk2::ModelsManager'
+                 with
+                 [
+                     _Kty=int
+         ,            _Ty=BSplineSurface *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelsmanager.h(90): warning C4251: 'gk2::ModelsManager::m_gregory_surfaces' : class 'std::map<int,GregorySurface *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'gk2::ModelsManager'
+                 with
+                 [
+                     _Kty=int
+         ,            _Ty=GregorySurface *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelsmanager.h(91): warning C4251: 'gk2::ModelsManager::m_activeBezier_surfaces' : class 'std::map<int,BezierSurface *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'gk2::ModelsManager'
+                 with
+                 [
+                     _Kty=int
+         ,            _Ty=BezierSurface *
+                 ]
+     1>c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\modelsmanager.h(95): warning C4251: 'gk2::ModelsManager::m_service' : class 'gk2::Service' needs to have dll-interface to be used by clients of class 'gk2::ModelsManager'
+                 c:\users\qba\documents\studia magisterskie\semestr_1\mg\laboratoria\zad3\motyl\service.h(14) : see declaration of 'gk2::Service'
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.h(44): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(156): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(163): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(164): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(166): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(168): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(169): warning C4244: 'initializing' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(171): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(201): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\qba\documents\studia magisterskie\semestr_2\pusn\symulatorfrezarki3c\src\pusn_heightmap.cpp(202): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86" /LIBPATH:../ven/AntTweakBar/lib /LIBPATH:../ven/AntTweakBar/lib/debug d3d11.lib d3dx11.lib dxerr.lib dinput8.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.lib" /MACHINE:X86 Debug\fileReader.obj
-         Debug\gk2_applicationBase.obj
-         Debug\gk2_butterfly.obj
-         Debug\gk2_camera.obj
-         Debug\gk2_constantBuffer.obj
-         Debug\gk2_coordinateSystem.obj
-         Debug\gk2_deviceHelper.obj
-         Debug\gk2_effectBase.obj
-         Debug\gk2_exceptions.obj
-         Debug\gk2_input.obj
-         Debug\gk2_lightShadowEffect.obj
-         Debug\gk2_particles.obj
-         Debug\gk2_phongEffect.obj
-         Debug\gk2_scene.obj
-         Debug\gk2_utils.obj
-         Debug\gk2_vertices.obj
-         Debug\gk2_window.obj
-         Debug\heightMap.obj
-         Debug\main.obj
-         Debug\miller.obj
-         Debug\modelclass.obj
-         Debug\service.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86" /LIBPATH:../ven/AntTweakBar/lib /LIBPATH:../ven/AntTweakBar/lib/debug d3d11.lib d3dx11.lib dxerr.lib dinput8.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.lib" /MACHINE:X86 Debug\pusn_fileReader.obj
+         Debug\pusn_applicationBase.obj
+         Debug\pusn_butterfly.obj
+         Debug\pusn_camera.obj
+         Debug\pusn_constantBuffer.obj
+         Debug\pusn_coordinateSystem.obj
+         Debug\pusn_deviceHelper.obj
+         Debug\pusn_effectBase.obj
+         Debug\pusn_exceptions.obj
+         Debug\pusn_input.obj
+         Debug\pusn_lightShadowEffect.obj
+         Debug\pusn_menu.obj
+         Debug\pusn_particles.obj
+         Debug\pusn_phongEffect.obj
+         Debug\pusn_scene.obj
+         Debug\pusn_utils.obj
+         Debug\pusn_vertices.obj
+         Debug\pusn_window.obj
+         Debug\pusn_heightMap.obj
+         Debug\pusn_main.obj
+         Debug\pusn_miller.obj
+         Debug\pusn_modelclass.obj
+         Debug\pusn_service.obj
+         "C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\Modelowanie.lib"
          SymulatorFrezarki.vcxproj -> C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\Debug\SymulatorFrezarki.exe
      1>Done Building Project "C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\src\SymulatorFrezarki.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.72
+Time Elapsed 00:00:02.01
