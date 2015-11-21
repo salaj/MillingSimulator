@@ -185,11 +185,11 @@ Menu::Menu(PusnMenuService* menuService)
 	//m_parserManager.ReadModel(p);
 
 	//int a = m_parserManager.d;
-	wstring file = L"C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\t3.f12";
+	wstring file = L"C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\t1.k16";
 	menuService->reader->LoadPaths(file);
 	menuService->miller->m_radius = menuService->reader->millerSize / menuService->heightMap->def_map_x;
 	menuService->miller->type = menuService->reader->millerType;
-	menuService->miller->SetPosition(0, 0.2, 0);
+	menuService->miller->SetPosition(0,0,0);
 	menuService->miller->Initialize();
 
 	/*m_miller->m_radius = 0.1f;

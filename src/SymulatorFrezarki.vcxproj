@@ -141,6 +141,7 @@
     <ClCompile Include="pusn_lightShadowEffect.cpp" />
     <ClCompile Include="pusn_menu.cpp" />
     <ClCompile Include="pusn_particles.cpp" />
+    <ClCompile Include="pusn_path.cpp" />
     <ClCompile Include="pusn_phongEffect.cpp" />
     <ClCompile Include="pusn_scene.cpp" />
     <ClCompile Include="pusn_utils.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="pusn_lightShadowEffect.h" />
     <ClInclude Include="pusn_menu_service.h" />
     <ClInclude Include="pusn_particles.h" />
+    <ClInclude Include="pusn_path.h" />
     <ClInclude Include="pusn_phongEffect.h" />
     <ClInclude Include="pusn_scene.h" />
     <ClInclude Include="pusn_utils.h" />

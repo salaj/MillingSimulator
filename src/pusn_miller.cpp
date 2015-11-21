@@ -346,6 +346,212 @@ void Miller::calculateOffset(XMVECTOR& pos, XMVECTOR& miller_center)
 
 }
 
+void Miller::generateSinglePaths(XMFLOAT3& lastPos, XMFLOAT2& previous, float currentZ)
+{
+	XMFLOAT3 previousPos = m_heightMap->GetHeightMapValue(previous.x, previous.y).Pos;
+	previousPos.y = lastPos.y;
+
+	Path lastPath;
+	lastPath.StartPosition = lastPos;
+	lastPath.EndPosition = previousPos;
+	paths.push_back(lastPath);
+
+	Path changeZPath;
+	changeZPath.StartPosition = previousPos;
+	XMFLOAT3 modifiedPreviousPos = previousPos;
+	modifiedPreviousPos.y = currentZ;
+	changeZPath.EndPosition = modifiedPreviousPos;
+	paths.push_back(changeZPath);
+
+
+	VertexPosNormal v_start;
+	v_start.Pos = lastPath.StartPosition;
+	v_start.Normal = XMFLOAT3(0, 0, 1);
+	vertices_container.push_back(v_start);
+	VertexPosNormal v_end;
+	v_end.Pos = lastPath.EndPosition;
+	v_end.Normal = XMFLOAT3(0, 0, 1);
+	vertices_container.push_back(v_end);
+
+	v_start.Pos = changeZPath.StartPosition;
+	vertices_container.push_back(v_start);
+	v_end.Pos = changeZPath.EndPosition;
+	vertices_container.push_back(v_end);
+
+	//update lastPos to start from lastPoint
+	lastPos = modifiedPreviousPos;
+}
+
+void Miller::moveMill(bool isMovingRight, int iteration, int MilledDist, int radius, int miller_diameter, XMFLOAT2& last, XMFLOAT2& previous, XMFLOAT3& lastPos, float& currentZ)
+{
+	float big = 100;
+	float tolerance = 0;
+	//RIGHT MOVEMENT
+	//We are checking next columns
+		if (isMovingRight)
+		{
+			for (int i = miller_diameter; i < m_heightMap->materialWidth; i++)
+			{
+				//We are moving in rows
+				int startPoint = MilledDist * iteration;
+				float maxZ = -big;
+				for (int j = startPoint; j < startPoint + miller_diameter; j++)
+				{
+					float z_offset = m_radius + tolerance;
+					float z = m_heightMap->GetHeightMapValue(i, j).Pos.y + z_offset;
+					if (z > maxZ)
+					{
+						previous.x = i - 1;
+						previous.y = last.y;
+
+						maxZ = z;
+					}
+				}
+				if (maxZ != currentZ)
+				{
+					currentZ = maxZ;
+					generateSinglePaths(lastPos, previous, currentZ);
+				}
+			}
+		}
+		else
+		{
+			for (int i = m_heightMap->materialWidth - miller_diameter; i >= 0; i--)
+			{
+				//We are moving in rows
+				int startPoint = MilledDist * iteration;
+				float maxZ = -big;
+				for (int j = startPoint; j < startPoint + miller_diameter; j++)
+				{
+					float z_offset = m_radius + tolerance;
+					float z = m_heightMap->GetHeightMapValue(i, j).Pos.y + z_offset;
+					if (z > maxZ)
+					{
+						previous.x = i + 1;
+						previous.y = last.y;
+
+						maxZ = z;
+					}
+				}
+				if (maxZ != currentZ)
+				{
+					currentZ = maxZ;
+					generateSinglePaths(lastPos, previous, currentZ);
+				}
+			}
+		}
+	//We are moving with miller to the end of material
+	XMFLOAT3 previousPos;
+	if (isMovingRight)
+		previousPos = m_heightMap->GetHeightMapValue(m_heightMap->materialWidth - radius, last.y).Pos;
+	else
+		previousPos = m_heightMap->GetHeightMapValue(radius, last.y).Pos;
+	previousPos.y = lastPos.y;
+
+	Path lastPath;
+	lastPath.StartPosition = lastPos;
+	lastPath.EndPosition = previousPos;
+	paths.push_back(lastPath);
+
+	VertexPosNormal v_start;
+	v_start.Pos = lastPath.StartPosition;
+	v_start.Normal = XMFLOAT3(0, 0, 1);
+	vertices_container.push_back(v_start);
+	VertexPosNormal v_end;
+	v_end.Pos = lastPath.EndPosition;
+	v_end.Normal = XMFLOAT3(0, 0, 1);
+	vertices_container.push_back(v_end);
+
+	//CO JAK BY£O PODNIESIENIE W OSTATNIM?!
+
+	//We are going down, moving to next row
+
+	lastPos = previousPos;
+	last.y += MilledDist;
+	if (isMovingRight)
+		previousPos = m_heightMap->GetHeightMapValue(m_heightMap->materialWidth - radius, last.y).Pos;
+	else
+		previousPos = m_heightMap->GetHeightMapValue(radius, last.y).Pos;
+	previousPos.y = lastPos.y;
+
+	Path downPath;
+	downPath.StartPosition = lastPos;
+	downPath.EndPosition = previousPos;
+	paths.push_back(downPath);
+
+	v_start.Pos = downPath.StartPosition;
+	vertices_container.push_back(v_start);
+	v_end.Pos = downPath.EndPosition;
+	vertices_container.push_back(v_end);
+
+	lastPos = previousPos;
+}
+
+void Miller::GeneratePaths()
+{
+
+	float cellSize = 2 / (float)m_heightMap->materialWidth;
+	float radius = m_radius * m_heightMap->materialWidth;
+	int MilledDist = 4;
+
+	//We are moving with miller of radius given by m_radius
+	//m_heightMap->GetHeightMapValue();
+
+	float big = 1000;
+	float currentZ = 0;
+	XMFLOAT2 last, previous;
+	XMFLOAT3 lastPos;
+	int miller_diameter = 2 * radius;
+	for (int j = 0; j < miller_diameter; j++)
+	{
+		for (int i = 0; i < miller_diameter; i++)
+		{
+			float z = m_heightMap->GetHeightMapValue(j, i).Pos.y;
+			if (z > currentZ)
+				currentZ = z;
+		}
+	}
+
+	last.x = radius - 1;
+	last.y = radius - 1;
+	previous = last;
+
+	lastPos = m_heightMap->GetHeightMapValue(last.x, last.y).Pos;
+	lastPos.y += m_radius;
+
+	int pathNo = (m_heightMap->materialHeight - miller_diameter) / MilledDist;
+	for (int n = 0; n < pathNo; n++)
+	{
+		if (n % 2)
+		{
+			moveMill(false, n, MilledDist, radius, miller_diameter, last, previous, lastPos, currentZ);
+		}
+		else
+		{
+			moveMill(true, n, MilledDist, radius, miller_diameter, last, previous, lastPos, currentZ);
+		}
+	}
+
+	/////PREPARE DRAW////////
+	VertexPosNormal* vertices = new VertexPosNormal[vertices_container.size()];
+	unsigned short* indices = new unsigned short[vertices_container.size() * 2 - 2];
+	m_parametrizationFirst_indexCount = vertices_container.size() * 2 - 2;
+	for (int i = 0; i < vertices_container.size(); i++)
+	{
+		vertices[i] = vertices_container[i];
+		if (i != vertices_container.size() - 1)
+		{
+			indices[2 * i] = i;
+			indices[2 * i + 1] = i + 1;
+		}
+	}
+
+	m_vertexBuffer_ParametrizationFirst = m_service.Device.CreateVertexBuffer(vertices, vertices_container.size());
+	m_indexBuffer_ParametrizationFirst = m_service.Device.CreateIndexBuffer(indices, m_parametrizationFirst_indexCount);
+	delete[] vertices;
+	delete[] indices;
+}
+
 void Miller::Initialize()
 {
 	InitializeCyllinder();
@@ -688,6 +894,14 @@ void Miller::onDraw()
 	//m_service.Context->IASetVertexBuffers(0, 1, &b, &VB_STRIDE_WITH_NORMAL, &VB_OFFSET);
 	//m_service.Context->IASetIndexBuffer(m_indexBuffer_SquareSecond.get(), DXGI_FORMAT_R16_UINT, 0);
 	//m_service.Context->DrawIndexed(indicesCount, 0, 0);
+
+	//PATHS
+	XMFLOAT4 color = XMFLOAT4(0.0, 0.0, 1.0f, 1.0);
+	m_service.Context->UpdateSubresource(m_service.cbSurfaceColor.get(), 0, 0, &color, 0, 0);
+	b = m_vertexBuffer_ParametrizationFirst.get();
+	m_service.Context->IASetVertexBuffers(0, 1, &b, &VB_STRIDE_WITH_NORMAL, &VB_OFFSET);
+	m_service.Context->IASetIndexBuffer(m_indexBuffer_ParametrizationFirst.get(), DXGI_FORMAT_R16_UINT, 0);
+	m_service.Context->DrawIndexed(m_parametrizationFirst_indexCount, 0, 0);
 }
 
 void Miller::afterDraw()

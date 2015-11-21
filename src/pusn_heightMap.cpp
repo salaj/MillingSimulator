@@ -200,24 +200,24 @@ void HeightMap:: PrepareSurface(ModelsManager* m_modelsManager)
 					float y_origin = (height / 2 * (a.y * factor + 1) * inverseFactor);
 					int x = roundf(x_origin); //+ x_offset;
 					int y = roundf(y_origin);// -y_offset;
-					float len = (x - x_origin) * (x - x_origin) + (y - y_origin)*(y - y_origin);
+					float len = (x  - x_origin) * (x - x_origin) + (y  - y_origin)*(y - y_origin);
 					/*if (x == 0 && y == 0)
 					{
 						x_start = x;
 						y_start = y;
 					}*/
 					if (GetHeightMapValue(x, height - y).Pos.y < z)
-						if (len < lens[x][height-y])
+						/*if (len < lens[x][height-y])
 						{
 							lens[x][height-y] = len;
 							GetHeightMapValue(x, height - y).Pos.y = z;
 						}
-
+						*/
 						//if (z > 0)
-						/*if (GetHeightMapValue(x, height - y).Pos.y == 1)
+						if (GetHeightMapValue(x, height - y).Pos.y == 1)
 							GetHeightMapValue(x, height - y).Pos.y = z;
 						else
-						GetHeightMapValue(x, height - y).Pos.y = (z + GetHeightMapValue(x, height - y).Pos.y ) / (float)2;*/
+						GetHeightMapValue(x, height - y).Pos.y = (z + GetHeightMapValue(x, height - y).Pos.y ) / (float)2;
 					int k = 10;
 				}
 			//for (int b = 0; b < 100; b++)

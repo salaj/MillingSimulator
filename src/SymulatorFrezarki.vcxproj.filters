@@ -70,6 +70,9 @@
     <ClCompile Include="pusn_menu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="pusn_path.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pusn_modelclass.h">
@@ -140,6 +143,9 @@
     </ClInclude>
     <ClInclude Include="pusn_menu_service.h">
       <Filter>Header Files\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_path.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

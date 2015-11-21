@@ -1,4 +1,4 @@
-﻿Build started 2015-11-19 21:08:35.
+﻿Build started 2015-11-21 20:00:53.
      1>Project "C:\Users\Qba\Documents\Studia magisterskie\semestr_2\PUSN\SymulatorFrezarki3C\src\SymulatorFrezarki.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include" /I../ven/AntTweakBar/include /I"C:\Users\Qba\Documents\Studia magisterskie\semestr_1\MG\laboratoria\ZAD3\Motyl" /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt pusn_heightMap.cpp
@@ -164,6 +164,7 @@
          Debug\pusn_lightShadowEffect.obj
          Debug\pusn_menu.obj
          Debug\pusn_particles.obj
+         Debug\pusn_path.obj
          Debug\pusn_phongEffect.obj
          Debug\pusn_scene.obj
          Debug\pusn_utils.obj
@@ -180,4 +181,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.01
+Time Elapsed 00:00:02.15

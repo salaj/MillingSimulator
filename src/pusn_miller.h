@@ -5,6 +5,7 @@
 #include "pusn_modelclass.h"
 #include "pusn_heightMap.h"
 #include "pusn_fileReader.h"
+#include "pusn_path.h"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ namespace pusn{
 		virtual void onDraw();
 		virtual void afterDraw();
 		bool CheckIfPointIsInside(XMVECTOR& pos);
+		void GeneratePaths();
 		void UpdateActivePoints();
 		XMFLOAT3 StartMillerPosition, EndMillerPosition;
 		virtual void Reset(HeightMap* heightMap);
@@ -34,6 +36,12 @@ namespace pusn{
 		virtual void setTriangleTopology();
 		virtual void setLineTopology();
 		void calculateOffset(XMVECTOR& pos, XMVECTOR& miller_center);
+
+		void generateSinglePaths(XMFLOAT3& lastPos, XMFLOAT2& previous, float currentZ);
+		void moveMill(bool isMovingRight, int iterarion, int MilledDist, int radius, int miller_diameter, XMFLOAT2& last, XMFLOAT2& previous, XMFLOAT3& lastPos, float& currentZ);
+		vector<Path> paths;
+		vector<VertexPosNormal> vertices_container;
+		vector<unsigned short> indices_container;
 
 		//void updateActivePoints();
 		void InitializeCyllinder();

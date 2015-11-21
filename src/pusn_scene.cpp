@@ -296,7 +296,8 @@ bool Scene::LoadContent()
 	m_HeightMap->PrepareSurface(m_modelsManager);
 	m_miller->Reset(m_HeightMap);
 	m_menu = new Menu(new PusnMenuService(getMainWindow(), &m_reader, m_miller, m_HeightMap));
-	
+	m_miller->GeneratePaths();
+
 	m_particles.reset(new ParticleSystem(m_device, XMFLOAT3(-1.0f, -1.1f, 0.46f)));
 	m_particles->SetViewMtxBuffer(m_cbView);
 	m_particles->SetProjMtxBuffer(m_cbProj);

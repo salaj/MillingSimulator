@@ -18,7 +18,7 @@ void FileReader::LoadPaths(wstring fileName)
 	default:
 		break;
 	}
-	millerSize = 10 /2 * (fileName[pos++] - '0') + fileName[pos] - '0';
+	millerSize = (10 * (fileName[pos++] - '0') + fileName[pos] - '0') / 2;
 	ifstream input;
 	//input.exceptions(ios::badbit | ios::failbit);
 	input.open(fileName);
