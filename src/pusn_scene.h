@@ -15,6 +15,7 @@
 #include "pusn_fileReader.h"
 #include "pusn_particles.h"
 #include "pusn_menu.h"
+#include "pusn_pathDrawer.h"
 //#include "bezierSurface.h"
 
 using namespace std;
@@ -48,6 +49,7 @@ namespace pusn
 		Camera m_camera;
 		CoordinateSystem* m_coordinateSystem;
 		Miller* m_miller;
+		PathsDrawer* m_pathsDrawer;
 
 		XMMATRIX m_projMtx;
 		XMMATRIX m_SceneMtx[6];
@@ -57,6 +59,7 @@ namespace pusn
 		HeightMap* m_HeightMap;
 
 		FileReader m_reader;
+		FileWriter m_writer;
 
 
 		std::shared_ptr<ID3D11VertexShader> m_vertexShader;
@@ -157,6 +160,7 @@ namespace pusn
 		void DrawRoom();
 		void DrawCoordinateSystem();
 		void DrawMiller();
+		void DrawPaths();
 		void DrawPlane(bool val = false);
 		void DrawCube();
 		void DrawMirroredWorld();

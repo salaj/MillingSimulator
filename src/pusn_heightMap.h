@@ -5,6 +5,7 @@
 #include <map>
 #include "pusn_modelclass.h"
 #include "pusn_constantBuffer.h"
+#include "pusn_marchingSquares.h"
 //#include "gk2_vertices.h"
 
 #include "modelsManager.h"
@@ -31,17 +32,25 @@ namespace pusn{
 
 		bool* activeVertices;
 
-		float def_map_x = 150;
-		float def_map_y = 50;
-		float def_map_z = 150;
+		//float def_map_x = 150;
+		//float def_map_y = 50;
+		//float def_map_z = 150;
 
+		float def_map_len = 2;
+		float def_map_number = 150;
 
+		//REAL DIMENSIONS in mm
 		float map_x = 150;
 		float map_y = 50;
 		float map_z = 150;
 
 		float low_y = -1.0;
 		float criticalMaterialYTolerance = 0.7;
+
+		vector<XMFLOAT2> orderedContourPoints;
+		vector<XMFLOAT3> orderedPrecisePoints;
+		vector<XMFLOAT3> orderedPrecisePointsBackHandle;
+		vector<XMFLOAT3> orderedPrecisePointsFrontHandle;
 
 	private:
 		static const unsigned int VB_STRIDE;
@@ -55,6 +64,13 @@ namespace pusn{
 		void fillIndices(int &index, int index1, int index2, int index3, int index4);
 		void probeSurface(BSplineSurface* surface, XMFLOAT2& min, XMFLOAT2& max, XMFLOAT2& parMin, XMFLOAT2& parMax);
 		void fixSurfaceHoles(int x_len, int y_len, int x_start, int y_start, float x_offset, float y_offset);
+		void checkIntersections(IntersectionSurfaceBSpline* intersectionSurface, BSplineSurface* surface);
+		void prepareEvolutePoints();
+		void preparePrecisePoints(ModelsManager* m_modelsManager, BSplineSurface* surface, vector<XMFLOAT2>& collisions, vector<XMFLOAT3>& orderedPoints, int iter_u, int iter_v, float tolerance, bool forceStopOnCollisiondetected);
+
+		vector<XMFLOAT2> collisionPoints;
+		vector<XMFLOAT2> collisionPointsFrontHandle;
+		vector<XMFLOAT2> collisionPointsBackHandle;
 
 		VertexPosNormal* lowVertices;
 		unsigned short* cubeIndicesMesh;

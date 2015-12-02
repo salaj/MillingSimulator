@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="pusn_marchingSquares.cpp" />
     <ClCompile Include="pusn_fileReader.cpp" />
     <ClCompile Include="pusn_applicationBase.cpp" />
     <ClCompile Include="pusn_butterfly.cpp" />
@@ -137,11 +138,13 @@
     <ClCompile Include="pusn_deviceHelper.cpp" />
     <ClCompile Include="pusn_effectBase.cpp" />
     <ClCompile Include="pusn_exceptions.cpp" />
+    <ClCompile Include="pusn_fileWriter.cpp" />
     <ClCompile Include="pusn_input.cpp" />
     <ClCompile Include="pusn_lightShadowEffect.cpp" />
     <ClCompile Include="pusn_menu.cpp" />
     <ClCompile Include="pusn_particles.cpp" />
     <ClCompile Include="pusn_path.cpp" />
+    <ClCompile Include="pusn_pathDrawer.cpp" />
     <ClCompile Include="pusn_phongEffect.cpp" />
     <ClCompile Include="pusn_scene.cpp" />
     <ClCompile Include="pusn_utils.cpp" />
@@ -154,6 +157,8 @@
     <ClCompile Include="pusn_service.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="pusn_marchingSquares.h" />
+    <ClInclude Include="pusn_pathDrawer.h" />
     <ClInclude Include="pusn_menu.h" />
     <ClInclude Include="pusn_fileReader.h" />
     <ClInclude Include="pusn_applicationBase.h" />
@@ -178,6 +183,7 @@
     <ClInclude Include="pusn_miller.h" />
     <ClInclude Include="pusn_modelclass.h" />
     <ClInclude Include="pusn_service.h" />
+    <ClInclude Include="pusn_fileWriter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Butterfly.hlsl">

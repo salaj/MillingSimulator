@@ -41,6 +41,7 @@ namespace pusn{
 		bool IsMaterialActive();
 		int GetMenuMaxSpeed();
 		int GetMenuAnimationSpeed();
+		void WritePaths(PusnMenuService* menuService);
 		//ParserManger m_parserManager;
 	private:
 		/*ParserManger m_parserManager;*/

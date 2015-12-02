@@ -73,6 +73,15 @@
     <ClCompile Include="pusn_path.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="pusn_fileWriter.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_pathDrawer.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="pusn_marchingSquares.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pusn_modelclass.h">
@@ -138,14 +147,23 @@
     <ClInclude Include="pusn_service.h">
       <Filter>Header Files\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="pusn_menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pusn_menu_service.h">
       <Filter>Header Files\Containers</Filter>
     </ClInclude>
     <ClInclude Include="pusn_path.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_fileWriter.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_pathDrawer.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_marchingSquares.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="pusn_menu.h">
+      <Filter>Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +202,15 @@
     </Filter>
     <Filter Include="Source Files\Menu">
       <UniqueIdentifier>{c8d53213-8e83-450e-b359-ff8b8bf8be1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helpers">
+      <UniqueIdentifier>{3412ec70-acae-449c-a86b-062018654908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{f4cfdcb6-c448-4479-9922-c76466147191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu">
+      <UniqueIdentifier>{7dfd7a4f-f3fd-4b5f-8ce2-fc461c28efa0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -132,7 +132,7 @@ void TW_CALL RunCB(void * a)
 		return;
 	c->reader->Reset();
 	c->reader->LoadPaths(s);
-	c->miller->m_radius = (c->reader->millerSize) / c->heightMap->def_map_x;
+	c->miller->m_radius = (c->reader->millerSize) / c->heightMap->map_x * 2;
 	c->miller->type = c->reader->millerType;
 	c->miller->Initialize();
 	int breakpoint = 10;
@@ -171,6 +171,15 @@ void TW_CALL ToogleAnimation(void * a)
 		*toogle = true;
 }
 
+void Menu::WritePaths(PusnMenuService* menuService)
+{
+	string fileFirst = "C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\moje.k16";
+	string fileSecond = "C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\moje.f12";
+	string fileThird = "C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\moje.k08";
+	vector<Path>& paths = menuService->miller->paths;
+	menuService->writer->WritePaths(fileSecond, paths);
+}
+
 Menu::Menu(PusnMenuService* menuService)
 {
 	//ModelsManager m_modelsManager;
@@ -185,9 +194,13 @@ Menu::Menu(PusnMenuService* menuService)
 	//m_parserManager.ReadModel(p);
 
 	//int a = m_parserManager.d;
-	wstring file = L"C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\t1.k16";
-	menuService->reader->LoadPaths(file);
-	menuService->miller->m_radius = menuService->reader->millerSize / menuService->heightMap->def_map_x;
+	wstring fileFirst = L"C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\moje.k16";
+	wstring fileSecond = L"C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\moje.f12";
+	wstring fileThird = L"C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\moje.k08";
+	//wstring file = L"C:\\Users\\Qba\\Documents\\Studia magisterskie\\semestr_2\\PUSN\\SymulatorFrezarki3C\\paths\\t1.k16";
+	menuService->reader->LoadPaths(fileSecond);
+	//we are multiplying by 2 because our mesh is located between -1 and 1 so length is 2
+	menuService->miller->m_radius = menuService->reader->millerSize / menuService->heightMap->map_x * 2;
 	menuService->miller->type = menuService->reader->millerType;
 	menuService->miller->SetPosition(0,0,0);
 	menuService->miller->Initialize();

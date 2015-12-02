@@ -8,7 +8,7 @@
 using namespace std;
 using namespace pusn;
 
-
+#define TEST_READY_PATHS
 
 #define RESOURCES_PATH L"resources/"
 const wstring Scene::ShaderFile = RESOURCES_PATH L"shaders/Puma.hlsl";
@@ -292,11 +292,24 @@ bool Scene::LoadContent()
 
 	m_coordinateSystem = new CoordinateSystem(service);
 	m_miller = new Miller(service);
+
 	m_HeightMap = new HeightMap(service);
-	m_HeightMap->PrepareSurface(m_modelsManager);
+	#ifndef TEST_READY_PATHS
+		m_pathsDrawer = new PathsDrawer(service);
+		m_HeightMap->PrepareSurface(m_modelsManager);
+	#endif
 	m_miller->Reset(m_HeightMap);
-	m_menu = new Menu(new PusnMenuService(getMainWindow(), &m_reader, m_miller, m_HeightMap));
-	m_miller->GeneratePaths();
+	PusnMenuService* menuService = new PusnMenuService(getMainWindow(), &m_reader, &m_writer, m_miller, m_HeightMap);
+	m_menu = new Menu(menuService);
+	#ifndef TEST_READY_PATHS
+		//m_miller->GeneratePaths();
+		m_miller->GeneratePathsSecondPart(m_HeightMap->orderedContourPoints);
+		/*m_miller->GeneratePathsThirdPart(m_HeightMap->orderedPrecisePoints);
+		m_miller->GeneratePathsThirdPart(m_HeightMap->orderedPrecisePointsBackHandle);
+		m_miller->GeneratePathsThirdPart(m_HeightMap->orderedPrecisePointsFrontHandle);*/
+		m_pathsDrawer->Feed(m_miller->vertices_container, m_miller->indices_container);
+		m_menu->WritePaths(menuService);
+	#endif
 
 	m_particles.reset(new ParticleSystem(m_device, XMFLOAT3(-1.0f, -1.1f, 0.46f)));
 	m_particles->SetViewMtxBuffer(m_cbView);
@@ -377,6 +390,16 @@ void Scene::DrawMiller()
 	m_miller->Draw();
 	m_cbWorld->Update(m_context, XMMatrixIdentity());
 }
+
+void Scene::DrawPaths()
+{
+	XMMATRIX worldMtx;
+	m_pathsDrawer->GetModelMatrix(worldMtx);
+	m_cbWorld->Update(m_context, worldMtx);
+	m_pathsDrawer->Draw();
+	m_cbWorld->Update(m_context, XMMatrixIdentity());
+}
+
 
 void Scene::DrawRoom()
 {
@@ -517,6 +540,12 @@ XMFLOAT3 StartMillerPosition, EndMillerPosition, CoreEndMillerPosition;
 XMVECTOR s, e, step;
 void Scene::UpdateCube(float dt)
 {
+	///////WSTAWKA/////
+	//m_miller->FollowPaths();
+	//return;
+	/////////////////
+
+
 	if (m_reader.pathIndex >= m_reader.paths.size())
 		return;
 
@@ -543,17 +572,19 @@ void Scene::UpdateCube(float dt)
 		else
 			m_miller->isMovingVertically = false;
 
-		float val = m_HeightMap->def_map_y;
-		float left = -((val - XMVectorGetZ(e)) / (m_HeightMap->def_map_y / 2));
-		float right = -(m_HeightMap->map_y / m_HeightMap->def_map_y);
+		float val = m_HeightMap->map_y;
+		float left = -((val - XMVectorGetZ(e)) / (m_HeightMap->map_y / 2));
+		float right = -(m_HeightMap->map_y / m_HeightMap->map_y);
 		//float right = (m_HeightMap->low_y * m_HeightMap->criticalMaterialYTolerance);
-		if (left < right)
+
+		//PRZYWRÓc
+		/*if (left < right)
 		{
 			int error = 10;
 			ShowPopup();
 			m_reader.pathIndex++;
 			return;
-		}
+		}*/
 		m_miller->Reset(m_HeightMap);
 	}
 	s = XMVectorSet(StartMillerPosition.x, StartMillerPosition.y, StartMillerPosition.z, 1);
@@ -832,6 +863,9 @@ void Scene::DrawScene(bool mirrored)
 
 	DrawCoordinateSystem();
 	DrawMiller();
+	#ifndef TEST_READY_PATHS
+		DrawPaths();
+	#endif
 	//SetLight0();
 	DrawRoom();
 	DrawCube();

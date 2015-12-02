@@ -12,12 +12,14 @@ namespace pusn{
 	public:
 		Window* mainWindow;
 		FileReader* reader;
+		FileWriter* writer;
 		Miller* miller;
 		HeightMap* heightMap;
-		PusnMenuService(Window* MainWindow, FileReader* Reader, Miller* Miller, HeightMap* HeightMap)
+		PusnMenuService(Window* MainWindow, FileReader* Reader, FileWriter* Writer, Miller* Miller, HeightMap* HeightMap)
 		{
 			mainWindow = MainWindow;
 			reader = Reader;
+			writer = Writer;
 			miller = Miller;
 			heightMap = HeightMap;
 		}
